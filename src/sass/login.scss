@@ -1,0 +1,77 @@
+.content .register{
+    background:none;
+    padding:0;
+}
+// 顶部标签
+.tab{
+    overflow:hidden;
+    h3{
+        float:left;
+        width:175px;
+        height:55px;
+        font-weight:100;
+        cursor:pointer;
+        border-top:3px solid transparent;
+        background:#eee;
+    }
+    .h3_active{        
+        border-top:3px solid #dd2828;
+        background:#fff;
+        font-weight:600;        
+        color:#dd2828;
+    }
+}
+.login_box{
+    padding:25px 25px 0 25px;
+    position: relative;
+    /* ---------------------------------手机登录------------------------------------- */
+    .phone_login{
+        height: 170px;
+        background:#fff;
+    }
+    /* ---------------------------------账号登录------------------------------------- */
+    .account_login{
+        height: 180px;
+        background:#fff;
+        display:none;
+        .agree{
+            line-height: 14px;
+            .forget_psw{
+                float:right;
+                color:#666;
+            }
+        }
+    }
+    .submit{
+        font-size:16px;
+    }
+}
+/* ----------------------------------------其他登录方式-------------------------------------- */
+.another{
+    height:1px;
+    margin:15px 25px;
+    background:#ccc;
+    position: relative;
+    top:-15px;
+    p{
+        line-height: 31px;
+        background:#fff;
+        padding:0 20px;
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+    }
+}
+.another_link{
+    font-size:0;
+    text-align: center;
+    a{
+        display: inline-block;
+        margin:4px 20px 35px;
+        img{
+            width:31px;
+            height:26px;
+        }
+    }
+}
