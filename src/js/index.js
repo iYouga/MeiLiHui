@@ -10,7 +10,7 @@
         /* ------------------------------------------menu------------------------------------------- */
         // 吸顶效果
         $(window).scroll(function(){
-            var iMenuTop = $('html body').scrollTop();
+            var iMenuTop = $(document).scrollTop();
             if (iMenuTop >= 120){
                 $('.menu').css({position:'fixed',top:0});
             } else{
@@ -21,7 +21,7 @@
                 $('.toTop').css('display', 'none');        
             } else{     
                 $('.toTop').css('display', 'block').click(function () {
-                    $('html,body').scrollTop(0);
+                    $(document).scrollTop(0);
                 });
             }
         });
@@ -113,10 +113,10 @@
         // 主体部分随鼠标上移
         var iConcentTop = parseInt($('.con_outer').css('top'));
         $(window).scroll(function(){
-            var iScrollTop = $('html body').scrollTop(); 
+            var iScrollTop = $(document).scrollTop(); 
             if (iScrollTop <= 367.5){
                 $('.con_outer').css('top', iConcentTop - iScrollTop / 0.7);
-                iScrollTop = $('html body').scrollTop();
+                iScrollTop = $(document).scrollTop();
             }
         });
         
