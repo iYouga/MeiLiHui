@@ -1,0 +1,30 @@
+{
+  "name": "mlh",
+  "version": "1.0.0",
+  "description": "魅力惠",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iYouga/MeiLiHui.git"
+  },
+  "keywords": [
+    "魅力惠"
+  ],
+  "author": "iYouga",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iYouga/MeiLiHui/issues"
+  },
+  "homepage": "https://github.com/iYouga/MeiLiHui#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-ruby-sass": "^2.1.1",
+    "gulp-uglify": "^3.0.0"
+  }
+}
