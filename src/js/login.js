@@ -60,14 +60,20 @@
                 url:'../php/login.php',
                 data:{
                     account:$('.accounts input').val(),
-                    password:$('.password input').val()
+                    password:$('.password input').val(),
+                    accounts:$('.phone input').val(),
+                    verifyCode:$('.verify_code input').val()
                 },
                 dataType:'json',
                 success:function(data){
                     if(data['status'] === 200){
                         location.href = 'index.html';
                     } else if(data['status'] === 401){
-                        $('.password span').css('visibility','visible').html(data['info']);
+                        if ($('.account_login').css('display') === 'block'){                            
+                            $('.password span').css('visibility','visible').html(data['info']);
+                        } else if ($('.phone_login').css('display') === 'block'){                            
+                            $('.verify_code span').css('visibility', 'visible').html('验证码错误');
+                        }
                     }
                 }
             });
