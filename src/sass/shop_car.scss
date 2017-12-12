@@ -132,7 +132,7 @@
     }
     // 购物袋商品列表
     .goods_list{
-        min-height: 580px;
+        // min-height: 580px;
         position: relative;
         // 选择标签
         .main_menu{  
@@ -144,11 +144,25 @@
                 text-align: center;
                 font-size:18px;
                 font-weight:100;
+                cursor:pointer;
             }
             .h3_checked{
                 font-weight:600;
                 background:#eee;
             }
+        }
+        .tab{
+            min-height:310px;
+            display: none;
+            .null{
+                margin-top:30px;
+                font-size:14px;
+                text-align: center;
+                font-weight: 600;
+            }
+        }
+        .tab_one{
+            display: block;
         }
         .title{
             line-height: 58px;
@@ -488,7 +502,7 @@
                         padding:0 10px;
                     }
                 }
-                a{
+                .go_selletement{
                     float:right;
                     width:140px;
                     height:60px;
@@ -496,6 +510,9 @@
                     background:#ccc;
                     color:#fff;
                     font-size:20px;
+                }
+                .go_selletement_checked{
+                    background:$font_red_color;
                 }
             }
         }
