@@ -332,7 +332,25 @@ $font_red_color:#dd2828;
         }
     }
 }
-    /* ---------------------------------------footer----------------------------------------- */
+/* ----------------------------------------顶部分类导航---------------------------------------- */
+%class_nav{
+    line-height: 55px;
+    overflow: hidden;
+    li{
+        float:left;
+        font-size:14px;
+        a{
+            color:#999;
+        } 
+        span{
+            display: inline-block;
+            width:26px;
+            line-height: 55px;
+            text-align: center;
+        }
+    }
+}
+/* -------------------------------------------footer------------------------------------------ */
 %footer{
     width:100%;
     background:#f2f2f2;
