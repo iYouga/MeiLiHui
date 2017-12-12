@@ -1,0 +1,125 @@
+@import '_common';
+
+/* ------------------------------------我的账户隐藏菜单------------------------------- */
+.top_left{
+    position: relative;
+    a.my_account{        
+        border-right:none;
+        line-height: 30px;
+        padding-right:0;
+    }
+    .my_account_menu{
+        position:absolute;
+        top:30px;
+        left:-10px;
+        z-index: 3;
+        box-shadow: 0 2px 3px 1px #aaa;
+        background:#fff;
+        width:225px;
+        display: none;
+        li{
+            float:left;
+            overflow: hidden;
+            a{
+                float:left;
+                width:74px;
+                height:29px;
+                text-align: center;
+                font-size:12px;
+                color:#000;
+                padding:45px 0 0;
+                border-right:1px solid #ccc;
+                border-bottom:1px solid #ccc;
+            }
+        }
+        @mixin my_account_menu_bg ($url){
+            background:url($url) no-repeat 28px 15px;
+        }
+        li:nth-of-type(1) a{                    
+            @include my_account_menu_bg('../../img/s_icon_order.gif');
+            &:hover{
+                @include my_account_menu_bg('../../img/s_icon_order_hover.gif');
+            }
+        }
+        li:nth-of-type(2) a{                    
+            @include my_account_menu_bg('../../img/s_icon_comment.gif');
+            &:hover{
+                @include my_account_menu_bg('../../img/s_icon_comment_hover.gif');
+            }
+        }
+        li:nth-of-type(3) a{                    
+            @include my_account_menu_bg('../../img/s_icon_coupon.gif');
+            &:hover{
+                @include my_account_menu_bg('../../img/s_icon_coupon_hover.gif');
+            }
+        }
+        li:nth-of-type(4) a{                    
+            @include my_account_menu_bg('../../img/s_icon_information.gif');
+            &:hover{
+                @include my_account_menu_bg('../../img/s_icon_information_hover.gif');
+            }
+        }
+        li:nth-of-type(5) a{                    
+            @include my_account_menu_bg('../../img/s_icon_address.gif');
+            &:hover{
+                @include my_account_menu_bg('../../img/s_icon_address_hover.gif');
+            }
+        }
+        li:nth-of-type(6) a{                    
+            @include my_account_menu_bg('../../img/s_icon_password.gif');
+            &:hover{
+                @include my_account_menu_bg('../../img/s_icon_password_hover.gif');
+            }
+        }
+    }
+}
+/* --------------------------------------content------------------------------------ */
+.goods_show{
+    width:1000px;
+    margin:0 auto;
+    overflow: hidden;
+    // 顶部分类导航
+    .class_nav{
+        @extend %class_nav;
+        li{
+            span{
+                color:#999;
+            }
+            &:last-of-type{
+                margin-left:10px;
+            }
+        }
+    }
+    // 大图片
+    .goods_show_img{
+        float:left;
+        margin-right:20px;
+        .big_img{
+            img{                
+                width:480px;
+                height:640px;
+            }
+        }
+        .small_img{
+            padding:0 25px;
+            overflow: hidden;
+            li{
+                float:left;
+                margin-right:5px;
+                img{
+                    width:80px;
+                    height:107px;
+                }
+            }
+        }
+    }
+    .goods_show_info{
+        float:left;
+    }
+}
+
+
+/*--------------------------------------footer--------------------------------------- */
+.footer{    
+    @extend %footer;
+}
