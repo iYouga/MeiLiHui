@@ -1,15 +1,6 @@
 (function($){
     $(function(){
-        /* -------------------------------我的账户隐藏菜单--------------------------- */
-        $('.my_account').mouseenter(function(){
-            $('.my_account_menu').show().mouseenter(function () {
-                $('.my_account_menu').show();
-            }).mouseleave(function () {
-                $('.my_account_menu').hide();
-            });;
-        }).mouseleave(function(){            
-            $('.my_account_menu').hide();
-        });
+        
         /* ---------------------------------点击便签切换------------------------------ */
         $('.main_menu').on('click','h3',function(){
             $(this).addClass('h3_checked').siblings().removeClass('h3_checked');
@@ -120,7 +111,5 @@
             });
             $('.selletement_r span').html(iPrice + '.00');
         }
-        
-        
     });
 })(jQuery);
