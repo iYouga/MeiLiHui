@@ -95,6 +95,11 @@
             }
             go_selletement();
         });
+        // 选中的件数
+        $('.circle').click(function(){
+            $('.selected').html(($('.circle_checked').filter('.one').length));
+
+        });
         // 计算价格
         function go_selletement (){
             // 计算按钮变色
@@ -107,7 +112,6 @@
             var iPrice = 0;
             $('.goods_list_unit:has(.circle_checked)').find('.price').each(function(k,v){
                 iPrice += Number($(v).children('span').html());
-                console.log($(v).children('span').html());
             });
             $('.selletement_r span').html(iPrice + '.00');
         }

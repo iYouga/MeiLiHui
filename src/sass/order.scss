@@ -1,0 +1,579 @@
+@import '_common';
+
+/* ------------------------------------我的账户隐藏菜单------------------------------- */
+.top_left{
+    position: relative;
+    a.my_account{        
+        border-right:none;
+        line-height: 30px;
+        padding-right:0;
+    }
+    .my_account_menu{
+        position:absolute;
+        top:30px;
+        left:-10px;
+        z-index: 3;
+        box-shadow: 0 2px 3px 1px #aaa;
+        background:#fff;
+        width:225px;
+        display: none;
+        li{
+            float:left;
+            overflow: hidden;
+            a{
+                float:left;
+                width:74px;
+                height:29px;
+                text-align: center;
+                font-size:12px;
+                color:#000;
+                padding:45px 0 0;
+                border-right:1px solid #ccc;
+                border-bottom:1px solid #ccc;
+            }
+        }
+        @mixin my_account_menu_bg ($url){
+            background:url($url) no-repeat 28px 15px;
+        }
+        li:nth-of-type(1) a{                    
+            @include my_account_menu_bg('../../img/s_icon_order.gif');
+            &:hover{
+                @include my_account_menu_bg('../../img/s_icon_order_hover.gif');
+            }
+        }
+        li:nth-of-type(2) a{                    
+            @include my_account_menu_bg('../../img/s_icon_comment.gif');
+            &:hover{
+                @include my_account_menu_bg('../../img/s_icon_comment_hover.gif');
+            }
+        }
+        li:nth-of-type(3) a{                    
+            @include my_account_menu_bg('../../img/s_icon_coupon.gif');
+            &:hover{
+                @include my_account_menu_bg('../../img/s_icon_coupon_hover.gif');
+            }
+        }
+        li:nth-of-type(4) a{                    
+            @include my_account_menu_bg('../../img/s_icon_information.gif');
+            &:hover{
+                @include my_account_menu_bg('../../img/s_icon_information_hover.gif');
+            }
+        }
+        li:nth-of-type(5) a{                    
+            @include my_account_menu_bg('../../img/s_icon_address.gif');
+            &:hover{
+                @include my_account_menu_bg('../../img/s_icon_address_hover.gif');
+            }
+        }
+        li:nth-of-type(6) a{                    
+            @include my_account_menu_bg('../../img/s_icon_password.gif');
+            &:hover{
+                @include my_account_menu_bg('../../img/s_icon_password_hover.gif');
+            }
+        }
+    }
+}
+/* ---------------------------------------content------------------------------------ */
+.con_header{
+    width:1000px;
+    margin:35px auto 0;
+    h2{
+        font-size:24px;
+        font-weight:100;
+        line-height: 40px;
+        border-bottom:1px solid #000;
+    }
+    h4{
+        font-size:14px;
+        line-height: 36px;
+        margin-top:20px;
+        border-bottom:2px solid #000;
+    }
+}
+// 收货地址
+.address{
+    width:1000px;
+    margin:0 auto 35px;
+    // 默认地址
+    .address_list{        
+        margin:20px 0;
+        &:after{
+            content:'';
+            height:0;
+            overflow: hidden;
+            clear:both;
+            display: block;
+            visibility: hidden;
+        }
+        li{
+            float:left;
+            width:278px;
+            height:105px;
+            padding:10px;
+            margin-right:20px;
+            border:1px solid #e7e7e7;
+            font-size:12px;
+            &:hover{
+                border:1px solid #000;
+            }
+            &:hover p .set_default{
+                visibility: visible;
+            }
+            p{
+                line-height: 20px;
+                span{
+                    margin-right:5px;
+                }
+            }
+            .info{                
+                padding-bottom:10px;
+                a{                    
+                    color:#000;
+                    float:right;
+                }
+                .set_default{
+                    visibility: hidden;
+                    text-decoration: underline;
+                    
+                    &:hover{
+                        color:$font_hover_color;
+                    }
+                }
+                .edit{
+                    text-decoration:underline;
+                    &:hover{
+                        color:$font_hover_color;
+                    }
+                }
+                .close{
+                    line-height: 18px;
+                    margin-left:10px;
+                    font-size:26px;
+                }
+            }
+            .default{
+                width:10px;
+                height:10px;
+                border:1px solid #999;
+                background:#fff;
+                margin-left: 266px;
+            }
+            .default_checked{
+                background:#000;
+            }
+        }
+        .default_add{
+            box-shadow: 5px 5px #f0f0f0;
+        }
+    }
+    .btn{
+        display:inline-block;
+        width:105px;
+        line-height: 35px;
+        text-align: center;
+        color:#fff;
+        font-size:14px;
+        background:$font_hover_color;
+    }
+    // 新增地址
+    .add_address{
+        font-size:12px;
+        .info_add{
+            line-height: 56px;
+        }
+        // 输入框样式
+        %input_style{
+            margin-bottom:10px;
+            label{
+                display: inline-block;
+                width:86px;
+                line-height: 30px;
+                text-align: right;
+            }
+            input{
+                width:393px;
+                line-height: 28px;
+                border:1px solid #999;
+                outline:none;
+                margin-left:15px;
+            }
+        }
+        .in_name{
+            @extend %input_style;
+        }
+        .in_phone{
+            @extend %input_style;
+        }
+        .in_add{
+            @extend %input_style;
+            // 选择省市区
+            .select_add{
+                display: inline-block;
+                vertical-align: middle;
+                margin-left:15px;
+                height:30px;
+                li{
+                    float:left;
+                    width:123px;
+                    margin-right:10px;
+                    line-height:28px;
+                    border:1px solid #999;
+                    text-indent: 10px;
+                    position: relative;
+                    a{
+                        float:right;
+                        margin-left:5px;
+                        margin-right:3px;
+                        width:18px;
+                        height:28px;
+                        border-bottom:1px solid #999;
+                        background:url(../../img/view_more.png) no-repeat center;
+                        transform: rotate(90deg);
+                    }
+                    // 隐藏的列表
+                    .outer{                        
+                        width:263px;
+                        height:151px;
+                        padding:34px 15px 20px 10px;
+                        border:1px solid #999;
+                        box-shadow:0 0 8px #aaa;
+                        background:#fff;
+                        overflow: hidden;
+                        position:absolute;
+                        top:29px;
+                        left:-1px;
+                        z-index: 2;
+                        display: none;
+                        span{
+                            font-size:26px;
+                            position:absolute;
+                            top:0px;
+                            right:10px;
+                        }
+                        ul{
+                            width:263px;
+                            height:151px;
+                            overflow: auto;
+                            position:absolute;
+                            left:10px;
+                            top:34px;
+                            li{
+                                width:100%;
+                                clear:left;
+                                border:none;
+                                cursor:pointer;
+                                &:hover{
+                                    background:#f2f2f2;
+                                }
+                            }
+                        }
+                        // 自定义滚动条样式
+                        //滚动条整体部分
+                        .bar::-webkit-scrollbar{  
+                            width: 3px;  
+                            height:10px;     
+                            // background-color:#b5b1b1;
+                        }  
+                        //scroll轨道背景
+                        .bar::-webkit-scrollbar-track{  
+                            // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  
+                            border-radius: 5px; 
+                            // background-color:black;    
+                        }
+                        // 滚动条中能上下移动的小块
+                        .bar::-webkit-scrollbar-thumb{  
+                            // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
+                            border-radius: 10px;  
+                            background-color:#000;
+                        } 
+                    }
+                }
+            }
+        }
+        .in_detailed{
+            @extend %input_style;
+        }
+        .in_postcode{
+            @extend %input_style;
+            p{
+                display: inline-block;
+                margin-left:10px;
+            }
+        }
+        // 是否设置为默认地址
+        .is_default{
+            margin-left:100px;
+            vertical-align: middle;
+        }
+        // 确认
+        .confirm{
+            margin:20px 7px 0 100px; 
+        }
+        // 取消
+        .cancel{
+            border:1px solid #000;
+            background:#fff;
+            color:#000;
+        }
+    }
+}
+// 支付方式
+.pay{
+    width:1000px;
+    margin:0 auto;
+    font-size:12px;    
+    h4{
+        font-size:14px;
+        line-height: 36px;
+        margin-top:20px;
+        margin:20px 0;
+        border-bottom:2px solid #000;
+    }
+    %way{
+        display: inline-block;
+        width:118px;
+        height:30px;
+        vertical-align: middle;
+        border:1px solid #999;
+    }
+    %way_hover{
+        border:1px solid #000;
+    }    
+    .pay_method{
+        .way{
+            @extend %way;
+            @extend %way_hover;
+            margin:0 10px;
+            background:url(../../img/weixinsaoma.gif) no-repeat center;
+        }
+        .other{
+            font-size:12px;
+            text-decoration:underline;
+            margin-left:20px;
+            cursor:pointer;
+            &:hover{
+                color:$font_hover_color;
+            }
+            img{
+                vertical-align: middle;
+                margin-left:10px;
+                transform: rotate(90deg);
+            }
+        }
+    }
+    // 选择支付方式
+    .check_way{
+        p{
+            line-height: 34px;
+        }
+        .check_box{
+            padding-top:25px;
+            position: relative;
+            border-left:1px solid #000;
+            .the_three{
+                width:98px;
+                line-height:24px;
+                text-align: center;
+                border:1px solid #000;
+                border-bottom:2px solid #fff;
+                border-left:0;
+                position: absolute;
+                top:0;
+                left:0;
+            }
+            .way_box{
+                width:720px;
+                height: 31px;
+                border:1px solid #000;
+                border-left:0;
+                padding:20px;
+                .way{
+                    @extend %way;
+                    margin-right:30px;
+                    cursor:pointer;
+                }
+                .zhi{
+                    background:url(../../img/zhifubao.gif) no-repeat center;
+                }
+                .zhi_code{
+                    background:url(../../img/zhifubaosaoma.gif) no-repeat center;
+                }
+                .wei_code{
+                    background:url(../../img/weixinsaoma.gif) no-repeat center;
+                }
+            }
+        }
+    }
+}
+// 购物清单
+.goods_list{
+    width:1000px;
+    margin:0 auto;
+    border-bottom:1px solid #ccc;
+    .buy_list{
+        font-size:14px;
+        line-height: 36px;
+        margin-top:20px;
+        margin:20px 0;
+        border-bottom:2px solid #000;
+    }
+    .talk{
+        font-size:12px;
+        text-indent: 10px;
+        line-height: 37px;
+        border:1px solid #e7e7e7;
+        box-shadow: 0 5px #f0f0f0;
+        margin-bottom:15px;
+    }
+    %info{
+        font-size:14px;
+        color:$font_red_color;
+        line-height:40px;
+        margin:10px 0 0;
+        padding:0 10px;
+        background:#f5f5f5;
+        a{
+            margin-left:15px;
+            color:#000;
+            font-size:12px;
+            text-decoration:underline;
+            &:hover{
+                color:$font_hover_color;
+            }
+        }
+    } 
+    .goods_list_unit{
+        .title{
+            width:960px;
+            line-height: 30px;
+            overflow: hidden;
+            border-bottom:2px solid #e7e7e7;
+            font-size:14px;
+            font-weight:600;
+            p{
+                float:left;
+                margin-right:90px;
+                &:nth-of-type(1){
+                    margin-right:234px;
+                    img{
+                        vertical-align:middle;
+                        margin:0 10px;
+                    }
+                }
+                &:last-of-type{
+                    margin-right:0;
+                }
+            }
+            .to_time{
+                font-size:12px;
+                i{
+                    font-style:normal;
+                    font-weight:100;
+                }
+            }
+        }
+        &:after{
+            content:'';
+            height:0;
+            clear:both;
+            overflow: hidden;
+            display: block;
+            visibility: hidden;
+        }
+        .goods_list_unit_con{
+            width:960px;
+            %div{
+                display: inline-block;
+                line-height: 130px;
+            }
+            // 商品图片、信息
+            .img_info{
+                float:left;
+                width:290px;
+                line-height: 20px;
+                margin-right:85px;
+                margin-top:10px;
+                img{
+                    float:left;
+                    width:80px;
+                    height:107px;
+                    border:1px solid #e7e7e7;
+                    margin-right:20px;
+                }
+                .goods_info{
+                    float:left;
+                    color:#000;
+                    font-size:14px;
+                    h4:hover{
+                        color:$font_hover_color;
+                    }
+                    p:hover{
+                        color:$font_hover_color;
+                    }
+                }
+                .color_size{
+                    width:170px;
+                    font-size:12px;
+                    margin-top:50px;
+                }
+            }
+            //单价
+            .unit-price{
+                @extend %div;
+                text-align: center;
+            } 
+            // 数量
+            .count{
+                @extend %div;
+                width:180px;
+                text-align: center;
+                .reduce,.add{
+                    display: inline-block;
+                    width:34px;
+                    line-height: 34px;
+                    background:#eee;
+                    font-size:26px;
+                    vertical-align: middle;
+                    cursor:pointer;
+                }
+                .reduce{
+                    color:#ccc;
+                }
+                .num{
+                    display: inline-block;
+                    width:40px;
+                    line-height: 34px;
+                    vertical-align: middle;
+                }
+            }
+            // 优惠
+            .discount{
+                @extend %div;
+                text-align: center;
+            }
+            //小计
+            .price{
+                @extend %div;
+                width:170px;
+                text-align: center;
+                font-weight:600;
+            }
+            // 删除
+            .delete{   
+                @extend %div;                 
+                width:78px;                    
+                line-height:26px;
+                border:1px solid #ccc;
+                text-align: center;
+                margin-right:20px;
+                font-size:14px;
+                cursor:pointer;
+            }
+        }
+    }
+}
+
+/*--------------------------------------footer--------------------------------------- */
+.footer{    
+    @extend %footer;
+}

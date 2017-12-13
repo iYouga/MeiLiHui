@@ -65,6 +65,7 @@
         });
         // 当页数为1时，向左切换为灰色
         $('.prev').click(function(){
+            up();
             var iCurPage = Number($('.cur_page').html());            
             var iAllPage = Number($('.all_page').html());            
             iCurPage = iCurPage <= 1 ? 1 : iCurPage - 1 ;
@@ -78,6 +79,7 @@
         });
         // 向右翻页
         $('.next').click(function(){
+            up();
             var iCurPage = Number($('.cur_page').html());            
             var iAllPage = Number($('.all_page').html());            
             iCurPage = iCurPage >= iAllPage ? iAllPage : iCurPage + 1;
@@ -91,6 +93,7 @@
         });
         // 输入跳转
         $('.confirm').click(function(){
+            up();
             var iCurPage = Number($('.goto').val());            
             var iAllPage = Number($('.all_page').html()); 
             $('.goods_list').hide().eq(iCurPage - 1).show();
@@ -120,6 +123,11 @@
         // 向左按钮变黑
         function leftBlack(){
             $('.prev').removeClass('g').addClass('b').addClass('bottom_dir_hover').css('color','#000').children('img').removeClass('gray');
+        }
+        // 文档向上滑动
+        function up(){
+            $('html').animate({scrollTop:200},300,'linear');
+            $('body').animate({scrollTop:200},300,'linear');
         }
     
         

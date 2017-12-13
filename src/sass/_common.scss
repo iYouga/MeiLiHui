@@ -350,6 +350,30 @@ $font_red_color:#dd2828;
         }
     }
 }
+/* -------------------------------------------尺寸信息----------------------------------------- */
+%size_info{
+    width:150px;
+    height:58px;
+    padding:10px;
+    border:1px solid #000;
+    background:#fff;
+    position:absolute;
+    top:41px;
+    left:-60px;
+    z-index: 3;
+    display: none;
+    img{
+        position:absolute;
+        left:78px;
+        top:-11px;
+    }
+    li{
+        line-height: 20px;
+        color:#909090;
+        text-align: left;
+        color:#000;
+    }
+}
 /* -------------------------------------------footer------------------------------------------ */
 %footer{
     width:100%;
