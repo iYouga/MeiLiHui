@@ -349,8 +349,8 @@
     width:100%;
     position:absolute;
     top:603px;
-    left:50%;
-    transform:translate(-50%);
+    // left:50%;
+    // transform:translate(-50%);
     overflow: hidden;
 
     /* --------------------------------------主体部分商品展示---------------------------------- */
@@ -379,7 +379,7 @@
         %big_img{
             border:none;
             width:320px;
-            height:486px;
+            height:484px;
             img{
                 height:484px;
             }

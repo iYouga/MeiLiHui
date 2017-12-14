@@ -12,7 +12,8 @@
         });        
         // 手机号提示信息
         $('.account input').on('blur',function(){
-            if($('.account input').val().length !== 11){
+            var reg = /^1\d{10}$/;
+            if(!reg.test($('.account input').val())){
                 $('.account span').css('visibility','visible').html('请输入格式正确的手机号');
             } else{
                 $('.account span').css('visibility','hidden');

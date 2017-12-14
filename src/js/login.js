@@ -9,7 +9,8 @@
         /* -------------------------------------提示信息------------------------------------- */
         // 手机号提示信息
         $('.phone input').on('blur',function(){
-            if($('.phone input').val().length !== 11){
+            var reg = /^1\d{10}$/;
+            if(!reg.test($('.phone input').val())){
                 $('.phone span').css('visibility','visible').html('请输入格式正确的手机号');
             } else{
                 $('.phone span').css('visibility','hidden');

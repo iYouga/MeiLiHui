@@ -90,6 +90,16 @@
         border-bottom:2px solid #000;
     }
 }
+%btn{
+    display:inline-block;
+    width:105px;
+    line-height: 35px;
+    text-align: center;
+    color:#fff;
+    font-size:14px;
+    background:$font_hover_color;
+    cursor:pointer;    
+}
 // 收货地址
 .address{
     width:1000px;
@@ -134,7 +144,7 @@
                 .set_default{
                     visibility: hidden;
                     text-decoration: underline;
-                    
+                    cursor:pointer;                                
                     &:hover{
                         color:$font_hover_color;
                     }
@@ -167,17 +177,17 @@
         }
     }
     .btn{
-        display:inline-block;
-        width:105px;
-        line-height: 35px;
-        text-align: center;
-        color:#fff;
-        font-size:14px;
-        background:$font_hover_color;
+        @extend %btn;
     }
     // 新增地址
     .add_address{
         font-size:12px;
+        display: none;
+        .please{
+            margin-left:10px;
+            color:$font_red_color;
+            display: none;
+        }
         .info_add{
             line-height: 56px;
         }
@@ -196,6 +206,7 @@
                 border:1px solid #999;
                 outline:none;
                 margin-left:15px;
+                text-indent: 10px;
             }
         }
         .in_name{
@@ -206,6 +217,9 @@
         }
         .in_add{
             @extend %input_style;
+            .please{
+                margin-left:0;
+            }
             // 选择省市区
             .select_add{
                 display: inline-block;
@@ -220,6 +234,13 @@
                     border:1px solid #999;
                     text-indent: 10px;
                     position: relative;
+                    &:first-of-type{
+                        .outer{
+                            .bar{                                
+                                display: block;
+                            }
+                        }
+                    }
                     a{
                         float:right;
                         margin-left:5px;
@@ -249,11 +270,13 @@
                             position:absolute;
                             top:0px;
                             right:10px;
+                            cursor:pointer;
                         }
                         ul{
                             width:263px;
                             height:151px;
                             overflow: auto;
+                            display: none;
                             position:absolute;
                             left:10px;
                             top:34px;
@@ -340,6 +363,7 @@
         border:1px solid #000;
     }    
     .pay_method{
+        display: none;
         .way{
             @extend %way;
             @extend %way_hover;
@@ -357,8 +381,13 @@
             img{
                 vertical-align: middle;
                 margin-left:10px;
+            }
+            .img_toTop{
                 transform: rotate(90deg);
             }
+        }
+        .to_top{
+            display: none;
         }
     }
     // 选择支付方式
@@ -409,7 +438,6 @@
 .goods_list{
     width:1000px;
     margin:0 auto;
-    border-bottom:1px solid #ccc;
     .buy_list{
         font-size:14px;
         line-height: 36px;
@@ -442,7 +470,9 @@
             }
         }
     } 
-    .goods_list_unit{
+    .goods_list_unit{        
+        border-bottom:1px dashed #ccc;
+        padding-bottom:10px;
         .title{
             width:960px;
             line-height: 30px;
@@ -485,13 +515,15 @@
             %div{
                 display: inline-block;
                 line-height: 130px;
+                width:120px;
+                font-size:12px;
             }
             // 商品图片、信息
             .img_info{
                 float:left;
-                width:290px;
+                width:270px;
                 line-height: 20px;
-                margin-right:85px;
+                margin-right:200px;
                 margin-top:10px;
                 img{
                     float:left;
@@ -525,20 +557,7 @@
             // 数量
             .count{
                 @extend %div;
-                width:180px;
                 text-align: center;
-                .reduce,.add{
-                    display: inline-block;
-                    width:34px;
-                    line-height: 34px;
-                    background:#eee;
-                    font-size:26px;
-                    vertical-align: middle;
-                    cursor:pointer;
-                }
-                .reduce{
-                    color:#ccc;
-                }
                 .num{
                     display: inline-block;
                     width:40px;
@@ -554,21 +573,129 @@
             //小计
             .price{
                 @extend %div;
-                width:170px;
                 text-align: center;
-                font-weight:600;
             }
-            // 删除
-            .delete{   
-                @extend %div;                 
-                width:78px;                    
-                line-height:26px;
-                border:1px solid #ccc;
-                text-align: center;
-                margin-right:20px;
-                font-size:14px;
+        }
+    }
+    // 发票
+    .invoice{
+        font-size:12px;
+        overflow: hidden;
+        .is_invoice{
+            line-height: 56px;
+            display: inline-block;
+            margin-bottom:30px;
+            input{
+                vertical-align: middle;
+                margin-right:5px;
+                margin-left:40px;
+            }
+        }
+        .invoice_class{
+            float:left;
+            display: none;
+            p{
+                display: none;
+            }
+            label{
+                display: inline-block;
+                width:85px;
+                text-align: right;
+                color:#666;
+            }
+            button{
+                width: 58px;
+                height:33px;
+                line-height:33px;
+                outline:none;
+                border:1px solid #000;
+                background:#fff;
+                margin-right:7px;
+                margin-bottom:13px;
                 cursor:pointer;
             }
+            .button_checked{
+                background:#000;
+                color:#fff;
+            }
+            .company{
+                display: none;
+            }
+             // placeholder字体颜色
+            & ::-webkit-input-placeholder { /* WebKit browsers */                
+                color:#ccc;                
+            }                
+            & :-moz-placeholder { /* Mozilla Firefox 4 to 18 */                
+                color:#ccc;                
+            }                
+            & ::-moz-placeholder { /* Mozilla Firefox 19+ */            
+                color:#ccc;
+            }                
+            &:-ms-input-placeholder { /* Internet Explorer 10+ */                
+                color:#ccc;
+            }
+            input{
+                width:273px;
+                line-height: 33px;
+                border:1px solid #909090;
+                outline:none;
+                margin-bottom:13px;
+                text-indent: 10px;
+                font-size:12px;
+            }
+            .comany_name_info{
+                display: block;
+                color:$font_red_color;
+                margin-bottom:15px;
+                display: none;
+            }
+            .perple_code_info{
+                display: inline-block;
+                color:#666;
+                text-indent: 25px;
+                background:url('../../img/tip-icon.png') no-repeat 5px center;
+            }
+            .btn{
+                @extend %btn;
+                border:none;
+                text-indent: 0;
+                margin-left:85px;
+            }
+            p{
+                color:$font_red_color;
+                margin-left:85px;
+            }
+        }
+        .money{
+            float:right;            
+            font-size:14px;
+            text-align: right;
+            div:nth-of-type(3){
+                font-size:18px;
+                margin-bottom:15px;
+            }
+            .pay_money{
+                margin-left:10px;
+                color:$font_red_color;
+                font-size:20px;
+            }
+            .btn{
+                @extend %btn;
+                width:225px; 
+            }           
+        }
+    }
+    // 优惠券    
+    .discount_box{
+        padding-bottom:125px;
+        .is_discount{
+            width:98px;
+            line-height: 23px;
+            border:1px solid #000;
+            text-align: center;
+            font-size: 12px;
+            margin-top:10px;
+            cursor:pointer;
         }
     }
 }

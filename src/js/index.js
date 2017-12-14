@@ -50,7 +50,7 @@
                 iScrollTop = $(document).scrollTop();
             }
         });
-        
+        $('.con_outer').css('left',(document.documentElement.clientWidth - $('.con_outer').width())/2);
 
 
 

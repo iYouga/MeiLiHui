@@ -27,14 +27,17 @@
                 $('.menu').css({position:'static'});
             }
             // 滑动条向下1200px时出现回到顶部按钮,否则隐藏，返回顶部效果
-            if (iMenuTop < 1200){
+            if (iMenuTop < 600){
                 $('.toTop').css('display', 'none');        
-            } else{     
-                $('.toTop').css('display', 'block').click(function () {
-                    $(document).scrollTop(0);
-                });
+            } else{
+                $('.toTop').css('display', 'block')     
             }
         });
+            $('.toTop').click(function () {
+                // $(document).scrollTop(0);
+                $('html').animate({scrollTop:0},500,'linear');
+                $('body').animate({scrollTop:0},500,'linear');
+            });
         
         // 购物车信息显示隐藏
         $('.m_right').mouseenter(function(){

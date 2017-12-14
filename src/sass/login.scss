@@ -1,5 +1,5 @@
 .content .register{
-    background:none;
+    background:#fff;
     padding:0;
 }
 // 顶部标签
@@ -24,6 +24,7 @@
 .login_box{
     padding:25px 25px 0 25px;
     position: relative;
+    background:#fff;
     /* ---------------------------------手机登录------------------------------------- */
     .phone_login{
         height: 170px;
@@ -64,6 +65,7 @@
     }
 }
 .another_link{
+    background:#fff;
     font-size:0;
     text-align: center;
     a{

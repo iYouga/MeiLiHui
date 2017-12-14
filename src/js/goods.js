@@ -43,6 +43,9 @@
             $('.big_img img').attr('src',$(this).attr('src'));
             // 切换小图片
             $('.small_img').hide().eq($(this).parents('li').index()).show();
+            // 显示右按钮，隐藏左按钮
+            $('.to_left').hide();
+            $('.to_right').show();
             // 切换颜色信息
             $('.color').html($(this).next().html());
         });

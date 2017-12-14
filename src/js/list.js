@@ -37,17 +37,25 @@
         // 品牌
         $('.check_brand ul li').click(function(){
             if($(this).children('input').attr('checked')){
-            $('<div class="brand">').html('品牌：<span>' + $(this).children('span').html() + '</span><a href="javascript:;" class="close">&times;</a>').prependTo($('.condition'));
+                $('<div class="brand">').html('品牌：<span>' + $(this).children('span').html() + '</span><a href="javascript:;" class="close">&times;</a>').prependTo($('.condition'));
             } else{
-                console.log('再点击一次则删除');
+                for(var i = 0;i < $('.brand span').length;i++){
+                    if($($('.brand span')[i]).html() == $(this).children('span').html()){
+                        $($('.brand span')[i]).parents('.brand').remove();
+                    }
+                }
             }
         });
         // 种类
         $('.check_class ul li').click(function(){
             if($(this).children('input').attr('checked')){
-            $('<div class="class">').html('种类：<span>' + $(this).children('span').html() + '</span><a href="javascript:;" class="close">&times;</a>').appendTo($('.condition'));
+                $('<div class="class">').html('种类：<span>' + $(this).children('span').html() + '</span><a href="javascript:;" class="close">&times;</a>').appendTo($('.condition'));
             }else{
-                console.log('再点击一次则删除');
+                for(var i = 0;i < $('.class span').length;i++){
+                    if($($('.class span')[i]).html() == $(this).children('span').html()){
+                        $($('.class span')[i]).parents('.class').remove();
+                    }
+                }
             }
         });
         /* -----------------------------------排序、翻页菜单---------------------------- */

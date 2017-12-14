@@ -168,6 +168,7 @@ $font_red_color:#dd2828;
                     position:absolute;
                     top:42px;
                     left:0;
+                    z-index: 5;
                     width:630px;
                     display: none;
                     // 左侧部分
@@ -290,7 +291,7 @@ $font_red_color:#dd2828;
             }
             .search_in{
                 @extend %search_unit;
-                width:170px;
+                width:150px;
                 height:26px;
                 text-indent: 10px;
                 font-size:12px;
@@ -306,13 +307,14 @@ $font_red_color:#dd2828;
             }
             // 匹配商品列表
             .recommendList{
-                width:198px;
+                width:178px;
                 padding-bottom:10px;
                 border:1px solid #ccc;
                 background:#fff;
                 position:absolute;
                 top:27px;
                 left:0;
+                z-index: 5;
                 display:none;
                 a{
                     display: inline-block;
