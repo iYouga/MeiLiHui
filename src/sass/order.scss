@@ -580,10 +580,17 @@
     // 发票
     .invoice{
         font-size:12px;
-        overflow: hidden;
+        padding-bottom:100px;
+        &:after{
+            content:'.';
+            height:0;
+            overflow: hidden;
+            display: block;
+            clear:both;
+            visibility: hidden;
+        }
         .is_invoice{
             line-height: 56px;
-            display: inline-block;
             margin-bottom:30px;
             input{
                 vertical-align: middle;
@@ -591,83 +598,98 @@
                 margin-left:40px;
             }
         }
-        .invoice_class{
+        .invoice_class_out{            
             float:left;
-            display: none;
-            p{
+            .invoice_class{
                 display: none;
-            }
-            label{
-                display: inline-block;
-                width:85px;
-                text-align: right;
-                color:#666;
-            }
-            button{
-                width: 58px;
-                height:33px;
-                line-height:33px;
-                outline:none;
-                border:1px solid #000;
-                background:#fff;
-                margin-right:7px;
-                margin-bottom:13px;
-                cursor:pointer;
-            }
-            .button_checked{
-                background:#000;
-                color:#fff;
-            }
-            .company{
-                display: none;
-            }
-             // placeholder字体颜色
-            & ::-webkit-input-placeholder { /* WebKit browsers */                
-                color:#ccc;                
-            }                
-            & :-moz-placeholder { /* Mozilla Firefox 4 to 18 */                
-                color:#ccc;                
-            }                
-            & ::-moz-placeholder { /* Mozilla Firefox 19+ */            
-                color:#ccc;
-            }                
-            &:-ms-input-placeholder { /* Internet Explorer 10+ */                
-                color:#ccc;
-            }
-            input{
-                width:273px;
-                line-height: 33px;
-                border:1px solid #909090;
-                outline:none;
-                margin-bottom:13px;
-                text-indent: 10px;
-                font-size:12px;
-            }
-            .comany_name_info{
-                display: block;
-                color:$font_red_color;
-                margin-bottom:15px;
-                display: none;
-            }
-            .perple_code_info{
-                display: inline-block;
-                color:#666;
-                text-indent: 25px;
-                background:url('../../img/tip-icon.png') no-repeat 5px center;
-            }
-            .btn{
-                @extend %btn;
-                border:none;
-                text-indent: 0;
-                margin-left:85px;
-            }
-            p{
-                color:$font_red_color;
-                margin-left:85px;
+                p{
+                    display: none;
+                }
+                label{
+                    display: inline-block;
+                    width:85px;
+                    line-height: 33px;
+                    text-align: right;
+                    color:#666;
+                }
+                button{
+                    width: 58px;
+                    height:33px;
+                    line-height:33px;
+                    outline:none;
+                    border:1px solid #000;
+                    background:#fff;
+                    margin-right:7px;
+                    margin-bottom:13px;
+                    cursor:pointer;
+                }
+                .button_checked{
+                    background:#000;
+                    color:#fff;
+                }
+                .company{
+                    display: none;
+                }
+                 // placeholder字体颜色
+                & ::-webkit-input-placeholder { /* WebKit browsers */                
+                    color:#ccc;                
+                }                
+                & :-moz-placeholder { /* Mozilla Firefox 4 to 18 */                
+                    color:#ccc;                
+                }                
+                & ::-moz-placeholder { /* Mozilla Firefox 19+ */            
+                    color:#ccc;
+                }                
+                &:-ms-input-placeholder { /* Internet Explorer 10+ */                
+                    color:#ccc;
+                }
+                input{
+                    width:273px;
+                    line-height: 33px;
+                    border:1px solid #909090;
+                    outline:none;
+                    margin-bottom:13px;
+                    text-indent: 10px;
+                    font-size:12px;
+                }
+                .class_company{
+                    display: block;
+                    margin-left:24px;
+                    display: none;
+                }
+                .comany_name_info,.perple_code_info{
+                    display: block;
+                    color:$font_red_color;
+                    margin-bottom:15px;
+                    margin-left:85px;
+                    display: none;
+                }
+                .perple_code_link{
+                    display: inline-block;
+                    color:#666;
+                    text-indent: 25px;
+                    background:url('../../img/tip-icon.png') no-repeat 5px center;
+                }
+                .btn{
+                    @extend %btn;
+                    border:none;
+                    text-indent: 0;
+                    margin-left:85px;
+                }
+                .invoice_edit{
+                    background:#fff;
+                    border:1px solid #000;
+                    color:#000;
+                    margin-top:20px;
+                    display: none;
+                }
+                p{
+                    color:$font_red_color;
+                    margin-left:85px;
+                }
             }
             // 优惠券    
             .discount_box{
-                padding-bottom:125px;
                 .is_discount{
                     width:98px;
                     line-height: 23px;
@@ -677,6 +699,117 @@
                     margin-top:10px;
                     cursor:pointer;
                 }
+                .use_discount{
+                    display: none;
+                    overflow: hidden;
+                    a{
+                        float:left;
+                        width:98px;
+                        line-height: 22px;
+                        text-align: center;
+                        border:1px solid #999;
+                        border-bottom:1px solid #000;
+                        background:#f2f2f2;
+                        color:#999;
+                        position: relative;
+                    }
+                    .a_checked{
+                        border:1px solid #000;
+                        border-bottom:1px solid #fff;
+                        color:#000;
+                        background:#fff;
+                        z-index: 1;
+                    }
+                    .check_discount{
+                        margin-right:-1px;
+                    }
+                    .discount_list{
+                        width:335px;
+                        border:1px solid #000;
+                        margin-top:23px;
+                        margin-bottom:20px;
+                        padding:20px;
+                        padding-left:18px;
+                        letter-spacing: .5px;
+                        li{
+                            line-height: 20px;
+                            padding-bottom:20px;
+                            input{
+                                margin-top:4px;
+                                margin-right:10px;
+                                width:12px;
+                                height:12px;
+                            }
+                            .discount_info{
+                                width:225px;
+                                display:inline-block;
+                                vertical-align: top;
+                            }
+                            .discount_money{
+                                float:right;
+                                text-align: right;
+                                .status{
+                                    color:$font_red_color;
+                                }
+                                .status_no{
+                                    color:#000;
+                                }
+                            }
+                        }
+                        .please_check{
+                            line-height:30px;
+                            margin-bottom:20px;
+                            color:$font_red_color;
+                            display: none;
+                        }
+                        .please_check+.discount_confirm{
+                            margin-top:20px;
+                        }
+                    }
+                    .in_code_discount{
+                        padding-top:20px;
+                        display: none;
+                        .the_code{
+                            width:258px;
+                            line-height: 28px;
+                            border:1px solid #000;
+                            margin-top:12px;
+                        }
+                    }
+                    .btns{
+                        display: inline-block;
+                        width:98px;
+                        line-height:23px;
+                        text-align: center;
+                        margin-top:10px;
+                        cursor:pointer;
+                    }
+                    .discount_confirm{
+                        border:1px solid $font_red_color;
+                        background:$font_red_color;
+                        color:#fff;
+                    }
+                    .discount_cancel{
+                        border:1px solid #000;
+                        margin-left:17px;
+                    }
+                }
+            }
+        }
+        .discount_checked{
+            display: none;
+            .reduce_money{
+                margin-left:20px;
+                color:$font_red_color;
+            }            
+            .discount_use_cancel{
+                display: inline-block;
+                width:98px;
+                line-height:23px;
+                border:1px solid #000;
+                text-align: center;
+                margin-top:10px;
+                cursor:pointer;
             }
         }
         .money{

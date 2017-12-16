@@ -487,40 +487,112 @@
             </div>
         </div>
         <div class="invoice">
-            是否需要开立发票？
             <form action="javascript:;" class="is_invoice">
+                是否需要开立发票？
                 <span><input type="radio" name="invoice" checked id="no_invoice"/><label for="no_invoice">不需要</label></span>
                 <span><input type="radio" name="invoice" id="e_invoice"/><label for="e_invoice">电子发票</label></span>
                 <span><input type="radio" name="invoice" id="p_invoice"/><label for="p_invoice">纸质发票</label></span>
             </form>
-            <div>
+            <div class="invoice_class_out">
                 <div class="invoice_class">
                     <label>发票类型：</label>
                     <button class="person button_checked">个人</button>
                     <button class="company_invoice">公司</button>
                     <form action="javascript:;" class="company">
                         <div>
+                            <label class="class_company">发票类型：公司</label>
                             <label>发票抬头：</label><input type="text" class="company_name" placeholder="请填写发票抬头"/>
+                            <span class="company_name_show"></span>
                             <span class="comany_name_info">请填写发票抬头</span>
                         </div>
                         <div>
                             <label>纳税人识别号：</label><input type="text" class="perple_code" placeholder="请填写纳税人识别号"/>
-                            <a href="javascript:;" class="perple_code_info">纳税人识别号说明</a>
+                            <span class="perple_code_show"></span>
+                            <a href="javascript:;" class="perple_code_link">纳税人识别号说明</a>
+                            <span class="perple_code_info">请填写正确的纳税人识别号</span>
                         </div>
-                        <input type="submit" value="确认信息" class="btn invoice_cobfirm">
+                        <input type="submit" value="确认信息" class="btn invoice_confirm">
+                        <input type="submit" value="修改" class="btn invoice_edit">
                     </form>
                     <p>提示：开立电子发票， 订单配送完成后，可在订单详情中查看打印发票</p>                    
-                    <div class="discount_box">
-                        <div class="is_discount">使用优惠券</div>
-
+                </div>
+                <div class="discount_box">
+                    <div class="is_discount">使用优惠券</div>
+                    <div class="use_discount">
+                        <div>
+                        <a href="javascript:;" class="check_discount a_checked">选择优惠券</a>
+                        <a href="javascript:;" class="code_discount">输入优惠券</a>
+                        </div>
+                        <ul class="in_check_discount discount_list">
+                            <li>
+                                <input type="radio" name="discount"/>
+                                <div class="discount_info">
+                                    <p class="disciunt_name">nnm1007y9ceh</p>
+                                    <p>【新用户大礼包-498减100】恭喜您注册成功，获得100元现金券（全场满498元可用，海外直发商品除外），更享随券免运！领取之日起14天内有效。</p>
+                                </div>
+                                <div class="discount_money">
+                                    <p class="money_reduce">100.0元</p>
+                                    <p class="status">可使用</p>
+                                </div>
+                            </li>
+                            <li>
+                                <input type="radio" name="discount"/>
+                                <div class="discount_info">
+                                    <p class="disciunt_name">nnm150p96fnj</p>
+                                    <p>【新用户大礼包-998减150】恭喜您注册成功，获得150元现金券（全场满998元可用，海外直发商品除外），更享随券免运！领取之日起14天内有效。</p>
+                                </div>
+                                <div class="discount_money">
+                                    <p class="money_reduce">150.0元</p>
+                                    <p class="status">可使用</p>
+                                </div>
+                            </li>
+                            <li>
+                                <input type="radio" name="discount"/>
+                                <div class="discount_info">
+                                    <p class="disciunt_name">nnm200jrlbs3</p>
+                                    <p>【新用户大礼包-1998减200】恭喜您注册成功，获得200元现金券（全场满1998元可用，海外直发商品除外），更享随券免运！领取之日起14天内有效。</p>
+                                </div>
+                                <div class="discount_money">
+                                    <p class="money_reduce">200.0元</p>
+                                    <p class="status">可使用</p>
+                                </div>
+                            </li>
+                            <li>
+                                <input type="radio" name="discount"/>
+                                <div class="discount_info">
+                                    <p class="disciunt_name">nnm5506a8xlp</p>
+                                    <p>【新用户大礼包-4998减550】恭喜您注册成功，获得550元现金券（全场满4998元可用，海外直发商品除外），更享随券免运！领取之日起14天内有效。</p>
+                                </div>
+                                <div class="discount_money">
+                                    <p class="money_reduce">550.0元</p>
+                                    <p class="status status_no">不可用</p>
+                                </div>
+                            </li>
+                            <p class="please_check">请选择可用的优惠券！</p>
+                            <span class="btns discount_confirm">提交</span>
+                            <span class="btns discount_cancel">取消使用</span>
+                        </ul>
+                        <div class="in_code_discount discount_list">
+                            <p>请输入您获得的优惠券代码：</p>
+                            <form action="javascript:;">
+                                <input type="text" class="the_code"/>
+                            </form>
+                            <span class="btns discount_confirm">提交</span>
+                            <span class="btns discount_cancel">取消使用</span>
+                        </div>
                     </div>
                 </div>
-                <div class="money">
-                    <div>商品小计：￥<span class="goods_money">2704.00</span></div>
-                    <div>+运费：￥<span class="freight_money">0.00</span></div>
-                    <div>=应付：<span class="pay_money">￥2704.00</span></div>
-                    <div class="btn submit_list">提交订单</div>
+                <div class="discount_checked">
+                    <p>已应用优惠券：<span class="disciunt_name">nnm5506a8xlp</span><span class="reduce_money">-￥550.00</span></p>
+                    <span class="discount_use_cancel">取消优惠券</span>
                 </div>
+
+            </div>
+            <div class="money">
+                <div>商品小计：￥<span class="goods_money">2704.00</span></div>
+                <div>+运费：￥<span class="freight_money">0.00</span></div>
+                <div>=应付：<span class="pay_money">￥2704.00</span></div>
+                <div class="btn submit_list">提交订单</div>
             </div>
         </div>
     </div>
