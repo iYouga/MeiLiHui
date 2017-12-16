@@ -665,6 +665,19 @@
                 color:$font_red_color;
                 margin-left:85px;
             }
+            // 优惠券    
+            .discount_box{
+                padding-bottom:125px;
+                .is_discount{
+                    width:98px;
+                    line-height: 23px;
+                    border:1px solid #000;
+                    text-align: center;
+                    font-size: 12px;
+                    margin-top:10px;
+                    cursor:pointer;
+                }
+            }
         }
         .money{
             float:right;            
@@ -683,19 +696,6 @@
                 @extend %btn;
                 width:225px; 
             }           
-        }
-    }
-    // 优惠券    
-    .discount_box{
-        padding-bottom:125px;
-        .is_discount{
-            width:98px;
-            line-height: 23px;
-            border:1px solid #000;
-            text-align: center;
-            font-size: 12px;
-            margin-top:10px;
-            cursor:pointer;
         }
     }
 }
